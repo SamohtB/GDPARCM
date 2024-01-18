@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Entity\Sphere.cpp" />
-    <ClCompile Include="Raytrace\HIttableList.cpp" />
+    <ClCompile Include="Raytrace\HittableList.cpp" />
     <ClCompile Include="Utilities\Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>

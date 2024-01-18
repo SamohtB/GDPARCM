@@ -2,7 +2,7 @@
 
 using namespace raytrace;
 
-bool Hittable_List::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const override
+bool Hittable_List::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const
 {
 	Hit_Record temp_rec;
 	bool hit_anything = false;

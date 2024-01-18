@@ -2,7 +2,7 @@
 
 using namespace entity;
 
-bool Sphere::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const override
+bool Sphere::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const
 {
 	vec3 oc = r.origin - center;
 	auto a = r.direction.magnitudeSquared();

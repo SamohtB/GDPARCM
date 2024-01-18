@@ -24,7 +24,7 @@
     <ClCompile Include="Entity\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Raytrace\HIttableList.cpp">
+    <ClCompile Include="Raytrace\HittableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
