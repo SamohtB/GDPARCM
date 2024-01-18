@@ -63,23 +63,36 @@ Vector3D& Vector3D::operator*=(float scalar)
     return *this;
 }
 
-Vector3D Vector3D::operator/(float scalar)
+Vector3D Vector3D::operator/(float scalar) const
 {
-    return {this->x * (1/scalar), this->y * (1/scalar), this->z * (1/scalar)};
+    const float epsilon = 0.0000f;
+
+    if (std::abs(scalar) > epsilon)
+    {
+        return {this->x / scalar, this->y / scalar, this->z / scalar};
+    }
+
+	throw std::runtime_error("Division by zero in Vector3D::operator/()");
 }
 
 Vector3D& Vector3D::operator/=(float scalar)
 {
-    this->x *= (1/scalar);
-    this->y *= (1/scalar);
-    this->z *= (1/scalar);
+    const float epsilon = 0.0000f;
 
-    return *this;
+    if (std::abs(scalar) > epsilon)
+    {
+        this->x /= scalar;
+        this->y /= scalar;
+        this->z /= scalar;
+        return *this;
+    }
+
+    throw std::runtime_error("Division by zero in Vector3D::operator/=()");
 }
 
 Vector3D Vector3D::operator-() const
 {
-    return {-this->x, -this->y, -this->x};
+    return {-this->x, -this->y, -this->z};
 }
 
 float Vector3D::operator[](int i) const
@@ -90,7 +103,7 @@ float Vector3D::operator[](int i) const
 	case 1: return this->y;
 	case 2: return this->z;
 	default: 
-        throw std::out_of_range("Invalid index in Vector3D::operator[]");;
+        throw std::out_of_range("Invalid index in Vector3D::operator[]");
 	}
 }
 
@@ -113,18 +126,18 @@ void Vector3D::zero()
     this->z = 0.0f;
 }
 
-float Vector3D::dot(Vector3D vectorB)
+float Vector3D::dot(const Vector3D& vectorB) const
 {
     return (this->x * vectorB.x + this->y * vectorB.y + this->z * vectorB.z);
 }
 
-Vector3D Vector3D::cross(Vector3D vectorB)
+Vector3D Vector3D::cross(const Vector3D& vectorB) const
 {
     float newX = this->y * vectorB.z - this->z * vectorB.y;
     float newY = this->z * vectorB.x - this->x * vectorB.z;
     float newZ = this->x * vectorB.y - this->y * vectorB.x;
 
-    return Vector3D(newX, newY, newZ);
+    return {newX, newY, newZ};
 }
 
 void Vector3D::normalize()

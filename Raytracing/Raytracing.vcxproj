@@ -144,11 +144,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vector3D.cpp" />
+    <ClCompile Include="Entity\Sphere.cpp" />
+    <ClCompile Include="Raytrace\HIttableList.cpp" />
+    <ClCompile Include="Utilities\Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="Vector3D.h" />
+    <ClInclude Include="Config\Settings.h" />
+    <ClInclude Include="Raytrace\Hittable.h" />
+    <ClInclude Include="Raytrace\HittableList.h" />
+    <ClInclude Include="Raytrace\Ray.h" />
+    <ClInclude Include="Entity\Sphere.h" />
+    <ClInclude Include="Raytrace\Raytrace.h" />
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Utilities\Vector3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

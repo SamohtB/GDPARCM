@@ -12,25 +12,25 @@ namespace utility
 	public:
 		Vector3D();
 		Vector3D(float x, float y, float z);
-		~Vector3D() = default;
+		using vec3 = Vector3D;
 
 		Vector3D operator+(Vector3D vectorB) const;
 		Vector3D& operator+=(Vector3D vectorB);
 		Vector3D operator-(Vector3D vectorB) const;
 		Vector3D& operator-=(Vector3D vectorB);
+		Vector3D operator*(Vector3D vectorB) const;
 		Vector3D operator*(float scalar) const;
 		Vector3D& operator*=(float scalar);
-		Vector3D operator*(Vector3D vectorB) const;
-		Vector3D operator/(float scalar);
+		Vector3D operator/(float scalar) const;
 		Vector3D& operator/=(float scalar);
-		Vector3D operator-()const;
+		Vector3D operator-() const;
 		float operator[](int i) const;
 		float& operator[](int i);
 		friend std::ostream& operator<<(std::ostream& os, const Vector3D& vector);
 
 		void zero();
-		float dot(Vector3D vectorB);
-		Vector3D cross(Vector3D vectorB);
+		float dot(const Vector3D& vectorB) const;
+		Vector3D cross(const Vector3D& vectorB) const;
 
 		void normalize();
 		float magnitude() const;
@@ -40,11 +40,11 @@ namespace utility
 		float y;
 		float z;
 	};
+
+	typedef Vector3D vec3;
+	typedef Vector3D point3;
 }
 
+typedef utility::Vector3D vec3;
+
 #endif
-
-
-
-
-

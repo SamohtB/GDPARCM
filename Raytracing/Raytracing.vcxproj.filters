@@ -18,15 +18,39 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3D.cpp">
+    <ClCompile Include="Utilities\Vector3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Raytrace\HIttableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector3D.h">
+    <ClInclude Include="Utilities\Vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Raytrace\Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config\Settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Raytrace\Hittable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Raytrace\HittableList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Raytrace\Raytrace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
