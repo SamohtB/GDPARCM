@@ -2,7 +2,7 @@
 
 using namespace entity;
 
-bool Sphere::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const
+bool Sphere::hit(const Ray& r, Interval ray_t, Hit_Record& rec) const
 {
 	vec3 oc = r.origin - center;
 	auto a = r.direction.magnitudeSquared();
@@ -14,10 +14,10 @@ bool Sphere::hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) 
 	auto sqrtd = sqrt(discriminant);
 
 	auto root = (-half_b - sqrtd) / a;
-	if (root <= ray_tmin || ray_tmax <= root) 
+	if (!ray_t.surrounds(root)) 
 	{
 		root = (-half_b + sqrtd) / a;
-		if (root <= ray_tmin || ray_tmax <= root)
+		if (!ray_t.surrounds(root))
 		{
 			return false;
 		}

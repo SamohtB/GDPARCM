@@ -2,6 +2,7 @@
 #define HITTABLE_H
 
 #include "Ray.h"
+#include "Raytrace.h"
 
 namespace raytrace
 {
@@ -24,7 +25,8 @@ namespace raytrace
 	{
 	public:
 		virtual ~Hittable() = default;
-		virtual bool hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const = 0;
+		virtual bool hit(const Ray& r, Interval ray_t, Hit_Record& rec) const = 0;
+
 	};
 }
 

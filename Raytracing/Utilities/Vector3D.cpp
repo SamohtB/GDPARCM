@@ -49,7 +49,7 @@ Vector3D Vector3D::operator*(float scalar) const
     return {this->x * scalar, this->y * scalar, this->z * scalar};
 }
 
-Vector3D Vector3D::operator*(Vector3D vectorB) const
+Vector3D Vector3D::operator*(const Vector3D& vectorB) const
 {
 	return {this->x * vectorB.x, this->y * vectorB.y, this->z * vectorB.z};
 }

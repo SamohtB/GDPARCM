@@ -143,6 +143,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Camera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Entity\Sphere.cpp" />
     <ClCompile Include="Raytrace\HittableList.cpp" />
@@ -150,12 +151,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config\Settings.h" />
+    <ClInclude Include="Entity\Camera.h" />
     <ClInclude Include="Raytrace\Hittable.h" />
     <ClInclude Include="Raytrace\HittableList.h" />
     <ClInclude Include="Raytrace\Ray.h" />
     <ClInclude Include="Entity\Sphere.h" />
     <ClInclude Include="Raytrace\Raytrace.h" />
     <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Utilities\Interval.h" />
     <ClInclude Include="Utilities\Vector3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

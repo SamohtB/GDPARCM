@@ -21,7 +21,7 @@ namespace raytrace
 
 		void clear();
 		void add(const shared_ptr<Hittable>& object);
-		bool hit(const Ray& r, float ray_tmin, float ray_tmax, Hit_Record& rec) const override;
+		bool hit(const Ray& r, Interval ray_t, Hit_Record& rec) const override;
 	};
 }
 
