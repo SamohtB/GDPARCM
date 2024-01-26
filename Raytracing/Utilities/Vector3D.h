@@ -77,7 +77,25 @@ namespace utility
 	inline Vector3D reflect(const Vector3D& v, const Vector3D& n)
 	{
 		return v - n * 2.f * v.dot(n);
-	}	
+	}
+
+	inline Vector3D refract(const Vector3D& uv, const Vector3D& n, float etai_over_etat)
+	{
+		auto cos_theta = fmin(-uv.dot(n), 1.0f);
+		Vector3D r_out_perp =  (n * cos_theta + uv) * etai_over_etat;
+		Vector3D r_out_parallel = n * -sqrt(fabs(1.0f - r_out_perp.magnitudeSquared()));
+		return r_out_perp + r_out_parallel;
+	}
+
+	inline Vector3D random_in_unit_disk()
+	{
+		while (true) 
+		{
+			auto p = Vector3D(random_float(-1.f, 1.f), random_float(-1.f, 1.f), 0.f);
+			if (p.magnitudeSquared() < 1)
+				return p;
+		}
+	}
 
 	typedef Vector3D vec3;
 	typedef Vector3D point3;
