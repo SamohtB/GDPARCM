@@ -4,6 +4,8 @@
 
 #include "../Raytrace/Hittable.h"
 #include "../Utilities/Color.h"
+#include "../Utilities/Material.h"
+#include "../Raytrace/Raytrace.h"
 
 #include <iostream>
 
@@ -14,8 +16,10 @@ namespace entity
 
 	class Camera {
 	public:
-		float aspect_ratio = 1.0f;
-		int   image_width = 100;
+		float aspect_ratio = 1.0f;			// Ratio of image width over height
+		int   image_width = 100;			// Rendered image width in pixel count
+		int   samples_per_pixel = 10;		// Count of random samples for each pixel
+		int   max_depth         = 10;   // Maximum number of ray bounces into scene
 
 		void render(const Hittable& world);
 
@@ -27,7 +31,9 @@ namespace entity
 		vec3   pixel_delta_v;  // Offset to pixel below
 
 		void initialize();
-		color ray_color(const Ray& r, const Hittable& world) const;
+		color ray_color(const Ray& r, int depth, const Hittable& world) const;
+		Ray get_ray(int i, int j) const;
+		vec3 pixel_sample_square() const;
 	};
 }
 

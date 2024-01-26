@@ -1,5 +1,5 @@
 #pragma once
-#ifndef  RAYTRACE_UTIL_H
+#ifndef RAYTRACE_UTIL_H
 #define RAYTRACE_UTIL_H
 
 #include <cmath>
@@ -34,9 +34,15 @@ inline float random_float()
     return distribution(generator);
 }
 
+inline float random_float(float min, float max)
+{
+    static std::uniform_real_distribution<float> distribution(min, max);
+    static std::mt19937 generator;
+    return distribution(generator);
+}
+
 // Common Headers
 
-#include "Ray.h"
 #include "../Utilities/Vector3D.h"
 #include "../Utilities/Interval.h"
 #include "../Config/Settings.h"

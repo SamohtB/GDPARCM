@@ -168,8 +168,27 @@ float Vector3D::magnitudeSquared() const
     return x * x + y * y + z * z;
 }
 
+bool Vector3D::near_zero() const
+{
+	// Return true if the vector is close to zero in all dimensions.
+	auto s = 1e-8;
+	return fabs(x) < s && fabs(y) < s && fabs(z) < s;
+}
+
+vec3 Vector3D::random()
+{
+	return vec3(random_float(), random_float(), random_float());
+}
+
+vec3 Vector3D::random(float min, float max)
+{
+	return vec3(random_float(min, max), random_float(min, max), random_float(min, max));
+}
+
 std::ostream& utility::operator<<(std::ostream& os, const Vector3D& vector)
 {
     os << "(" << vector.x << ", " << vector.y << ", " << vector.z << ")";
     return os;
 }
+
+

@@ -4,6 +4,12 @@
 #include "Ray.h"
 #include "Raytrace.h"
 
+
+namespace utility
+{
+	class Material;
+}
+
 namespace raytrace
 {
 	class Hit_Record
@@ -11,6 +17,7 @@ namespace raytrace
 	public:
 		point3 p;
 		vec3 normal;
+		shared_ptr<Material> mat;
 		float t;
 		bool front_face;
 
