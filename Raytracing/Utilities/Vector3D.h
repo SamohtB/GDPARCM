@@ -97,6 +97,21 @@ namespace utility
 		}
 	}
 
+	inline float clamp(float value, float min, float max)
+	{
+		if(value < min)
+		{
+			return min;
+		}
+
+		if(value > max)
+		{
+			return max;
+		}
+
+		return value;
+	}
+
 	typedef Vector3D vec3;
 	typedef Vector3D point3;
 }

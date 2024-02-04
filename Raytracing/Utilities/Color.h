@@ -31,6 +31,7 @@ namespace utility
 		b = linear_to_gamma(b);
 
 		// Write the translated [0,255] value of each color component.
+
 		static const Interval intensity(0.000f, 0.999f);
 		out << static_cast<int>(256 * intensity.clamp(r)) << ' '
 			<< static_cast<int>(256 * intensity.clamp(g)) << ' '

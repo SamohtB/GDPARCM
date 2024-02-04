@@ -19,10 +19,13 @@ void Camera::render(const Hittable& world)
 				Ray r = get_ray(i, j);
 				pixel_color += ray_color(r, max_depth, world);
 			}
-			write_color(std::cout, pixel_color, samples_per_pixel);
+			//write_color(std::cout, pixel_color, samples_per_pixel);
+			image->setPixel(i, j, pixel_color.x, pixel_color.y, pixel_color.z, samples_per_pixel);
 		}
 	}
 
+	cv::String fileName = "D:/GitRepository/GDPARCM/Raytracing/Ligma.png";
+	image->saveImage(fileName);
 	std::clog << "\rDone.                 \n";
 }
 
@@ -84,6 +87,8 @@ void Camera::initialize()
 	auto defocus_radius = focus_dist * tan(degrees_to_radians(defocus_angle / 2));
 	defocus_disk_u = u * defocus_radius;
 	defocus_disk_v = v * defocus_radius;
+
+	this->image = new RTImage(image_width, image_height);
 }
 
 Ray Camera::get_ray(int i, int j) const

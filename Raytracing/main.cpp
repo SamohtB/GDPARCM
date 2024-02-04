@@ -6,11 +6,9 @@
 #include "Utilities/Material.h"
 #include "Entity/Sphere.h"
 
-
 using namespace utility;
 using namespace raytrace;
 using namespace entity;
-
 
 int main()
 {
@@ -19,8 +17,8 @@ int main()
 	auto ground_material = make_shared<Lambertian>(color(0.5, 0.5, 0.5));
     world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, ground_material));
 
-    for (int a = -15; a < 15; a++) {
-        for (int b = -15; b < 15; b++) {
+    for (int a = -25; a < 25; a++) {
+        for (int b = -25; b < 25; b++) {
             auto choose_mat = random_float();
             point3 center(a + 0.9f * random_float(), 0.2f, b + 0.9f * random_float());
 
@@ -63,8 +61,8 @@ int main()
 
     cam.aspect_ratio      = 1;
     cam.image_width       = 512;
-    cam.samples_per_pixel = 10;
-    cam.max_depth         = 10;
+    cam.samples_per_pixel = 250;
+    cam.max_depth         = 25;
 
     cam.vfov     = 20;
     cam.lookfrom = point3(13,2,3);

@@ -6,6 +6,7 @@
 #include "../Utilities/Color.h"
 #include "../Utilities/Material.h"
 #include "../Raytrace/Raytrace.h"
+#include "../Utilities/RTImage.h"
 
 #include <iostream>
 
@@ -17,8 +18,8 @@ namespace entity
 	class Camera {
 	public:
 		float aspect_ratio = 1.0f;			// Ratio of image width over height
-		int   image_width = 100;			// Rendered image width in pixel count
-		int   samples_per_pixel = 10;		// Count of random samples for each pixel
+		int   image_width = 512;			// Rendered image width in pixel count
+		int   samples_per_pixel = 20;		// Count of random samples for each pixel
 		int   max_depth         = 10;   // Maximum number of ray bounces into scene
 
 		float vfov = 90.f;  // Vertical view angle (field of view)
@@ -41,6 +42,7 @@ namespace entity
 		vec3   u, v, w;        // Camera frame basis vectors
 		vec3   defocus_disk_u;  // Defocus disk horizontal radius
 		vec3   defocus_disk_v;  // Defocus disk vertical radius
+		RTImage* image = nullptr;
 
 		void initialize();
 		color ray_color(const Ray& r, int depth, const Hittable& world) const;
